@@ -3,7 +3,7 @@ import { Auth } from "aws-amplify";
 import { Authenticator } from "aws-amplify-react";
 import styled from "@emotion/styled";
 
-import awsExports from "../aws-exports";
+import awsExports from "./aws-exports";
 import Screens from "./components/Screens";
 
 const Title = styled("h1")
@@ -69,7 +69,7 @@ function App() {
     ) : ( <
         >
         <
-        Title > Quick Notes < /Title> <
+        Title > Quick Notes < /Title>{" "} <
         Authenticator onStateChange = {
             authState => {
                 if (authState === "signedIn") {
@@ -79,7 +79,7 @@ function App() {
         }
         amplifyConfig = { awsExports }
         theme = { theme }
-        /> <
+        />{" "} <
         />
     );
 }

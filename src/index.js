@@ -7,7 +7,7 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import "normalize.css/normalize.css";
 import "./index.css";
-import amplifyConfig from "../aws-exports";
+import amplifyConfig from "./aws-exports";
 
 Amplify.configure(amplifyConfig);
 Amplify.addPluggable(new AmazonAIPredictionsProvider());
