@@ -1,6 +1,6 @@
 {
     "identityPoolName": "quicknotes9506fafe_identitypool_9506fafe",
-    "allowUnauthenticatedIdentities": true,
+    "allowUnauthenticatedIdentities": false,
     "resourceNameTruncated": "quickn9506fafe",
     "userPoolName": "quicknotes9506fafe_userpool_9506fafe",
     "autoVerifiedAttributes": [
