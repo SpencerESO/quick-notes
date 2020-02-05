@@ -1,65 +1,65 @@
 {
-	"prod": {
-		"awscloudformation": {
-			"AuthRoleName": "amplify-quick-notes-prod-234336-authRole",
-			"UnauthRoleArn": "arn:aws:iam::565508147415:role/amplify-quick-notes-prod-234336-unauthRole",
-			"AuthRoleArn": "arn:aws:iam::565508147415:role/amplify-quick-notes-prod-234336-authRole",
-			"Region": "us-east-1",
-			"DeploymentBucketName": "amplify-quick-notes-prod-234336-deployment",
-			"UnauthRoleName": "amplify-quick-notes-prod-234336-unauthRole",
-			"StackName": "amplify-quick-notes-prod-234336",
-			"StackId": "arn:aws:cloudformation:us-east-1:565508147415:stack/amplify-quick-notes-prod-234336/13813300-47d2-11ea-8505-1225390e8313",
-			"AmplifyAppId": "d2c3t209mwf3g7"
-		},
-		"categories": {
-			"auth": {
-				"quicknotes9506fafe": {}
-			},
-			"function": {
-				"S3Trigger52e54ef1": {}
-			}
-		}
-	},
-	"test": {
-		"awscloudformation": {
-			"AuthRoleName": "amplify-quick-notes-test-235420-authRole",
-			"UnauthRoleArn": "arn:aws:iam::565508147415:role/amplify-quick-notes-test-235420-unauthRole",
-			"AuthRoleArn": "arn:aws:iam::565508147415:role/amplify-quick-notes-test-235420-authRole",
-			"Region": "us-east-1",
-			"DeploymentBucketName": "amplify-quick-notes-test-235420-deployment",
-			"UnauthRoleName": "amplify-quick-notes-test-235420-unauthRole",
-			"StackName": "amplify-quick-notes-test-235420",
-			"StackId": "arn:aws:cloudformation:us-east-1:565508147415:stack/amplify-quick-notes-test-235420/92ffa340-47d3-11ea-84a7-121fa677fe9a",
-			"AmplifyAppId": "d2c3t209mwf3g7"
-		},
-		"categories": {
-			"auth": {
-				"quicknotes9506fafe": {}
-			},
-			"function": {
-				"S3Trigger52e54ef1": {}
-			}
-		}
-	},
-	"dev": {
-		"awscloudformation": {
-			"AuthRoleName": "amplify-quick-notes-dev-00242-authRole",
-			"UnauthRoleArn": "arn:aws:iam::565508147415:role/amplify-quick-notes-dev-00242-unauthRole",
-			"AuthRoleArn": "arn:aws:iam::565508147415:role/amplify-quick-notes-dev-00242-authRole",
-			"Region": "us-east-1",
-			"DeploymentBucketName": "amplify-quick-notes-dev-00242-deployment",
-			"UnauthRoleName": "amplify-quick-notes-dev-00242-unauthRole",
-			"StackName": "amplify-quick-notes-dev-00242",
-			"StackId": "arn:aws:cloudformation:us-east-1:565508147415:stack/amplify-quick-notes-dev-00242/be517630-47d4-11ea-94ad-0af228e676ce",
-			"AmplifyAppId": "d2c3t209mwf3g7"
-		},
-		"categories": {
-			"auth": {
-				"quicknotes9506fafe": {}
-			},
-			"function": {
-				"S3Trigger52e54ef1": {}
-			}
-		}
-	}
+    "prod": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-quick-notes-prod-234336-authRole",
+            "UnauthRoleArn": "arn:aws:iam::565508147415:role/amplify-quick-notes-prod-234336-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::565508147415:role/amplify-quick-notes-prod-234336-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-quick-notes-prod-234336-deployment",
+            "UnauthRoleName": "amplify-quick-notes-prod-234336-unauthRole",
+            "StackName": "amplify-quick-notes-prod-234336",
+            "StackId": "arn:aws:cloudformation:us-east-1:565508147415:stack/amplify-quick-notes-prod-234336/13813300-47d2-11ea-8505-1225390e8313",
+            "AmplifyAppId": "d2c3t209mwf3g7"
+        },
+        "categories": {
+            "auth": {
+                "quicknotes9506fafe": {}
+            },
+            "function": {
+                "S3Trigger52e54ef1": {}
+            }
+        }
+    },
+    "test": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-quick-notes-test-235420-authRole",
+            "UnauthRoleArn": "arn:aws:iam::565508147415:role/amplify-quick-notes-test-235420-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::565508147415:role/amplify-quick-notes-test-235420-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-quick-notes-test-235420-deployment",
+            "UnauthRoleName": "amplify-quick-notes-test-235420-unauthRole",
+            "StackName": "amplify-quick-notes-test-235420",
+            "StackId": "arn:aws:cloudformation:us-east-1:565508147415:stack/amplify-quick-notes-test-235420/92ffa340-47d3-11ea-84a7-121fa677fe9a",
+            "AmplifyAppId": "d2c3t209mwf3g7"
+        },
+        "categories": {
+            "auth": {
+                "quicknotes9506fafe": {}
+            },
+            "function": {
+                "S3Trigger52e54ef1": {}
+            }
+        }
+    },
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-quick-notes-dev-00242-authRole",
+            "UnauthRoleArn": "arn:aws:iam::565508147415:role/amplify-quick-notes-dev-00242-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::565508147415:role/amplify-quick-notes-dev-00242-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-quick-notes-dev-00242-deployment",
+            "UnauthRoleName": "amplify-quick-notes-dev-00242-unauthRole",
+            "StackName": "amplify-quick-notes-dev-00242",
+            "StackId": "arn:aws:cloudformation:us-east-1:565508147415:stack/amplify-quick-notes-dev-00242/be517630-47d4-11ea-94ad-0af228e676ce",
+            "AmplifyAppId": "d2c3t209mwf3g7"
+        },
+        "categories": {
+            "auth": {
+                "quicknotes9506fafe": {}
+            },
+            "function": {
+                "S3Trigger52e54ef1": {}
+            }
+        }
+    }
 }
