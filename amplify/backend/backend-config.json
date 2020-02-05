@@ -1,0 +1,54 @@
+{
+	"auth": {
+		"quicknotes9506fafe": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	},
+	"api": {
+		"quicknotes": {
+			"service": "AppSync",
+			"providerPlugin": "awscloudformation",
+			"output": {
+				"securityType": "AMAZON_COGNITO_USER_POOLS"
+			}
+		}
+	},
+	"predictions": {
+		"transcriptione65259cc": {
+			"providerPlugin": "awscloudformation",
+			"service": "Transcribe",
+			"convertType": "transcription"
+		},
+		"speechGeneratorc72b6c38": {
+			"providerPlugin": "awscloudformation",
+			"service": "Polly",
+			"convertType": "speechGenerator"
+		}
+	},
+	"storage": {
+		"quickNotesStorage": {
+			"service": "S3",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "S3Trigger52e54ef1",
+					"attributes": [
+						"Name",
+						"Arn",
+						"LambdaExecutionRole"
+					]
+				}
+			]
+		}
+	},
+	"function": {
+		"S3Trigger52e54ef1": {
+			"service": "Lambda",
+			"providerPlugin": "awscloudformation",
+			"build": true
+		}
+	}
+}
