@@ -20,24 +20,24 @@ const theme = {
         padding: "8px 24px 24px"
     },
     formSection: {
-        backgroundColor: "#ffffff",
+        backgroundColor: "#fafaff",
         borderRadius: "4px"
     },
     sectionHeader: {
-        color: "#74b49b"
+        color: "#0B0863"
     },
     sectionFooterSecondaryContent: {
         color: "#303952"
     },
     inputLabel: {
-        color: "#74b49b"
+        color: "#0B0863"
     },
     input: {
         backgroundColor: "#f4f9f4",
-        color: "#74b49b"
+        color: "#0B0863"
     },
     hint: {
-        color: "#74b49b"
+        color: "#0B0863"
     },
     button: {
         borderRadius: "3px",

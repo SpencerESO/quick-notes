@@ -2,7 +2,8 @@ import React from "react";
 import { Dialog, DialogOverlay, DialogContent } from "@reach/dialog";
 import styled from "@emotion/styled";
 
-const StyledDialogOverlay = styled(DialogOverlay)`
+const StyledDialogOverlay = styled(DialogOverlay)
+`
   position: fixed;
   top: 0;
   bottom: 0;
@@ -13,8 +14,9 @@ const StyledDialogOverlay = styled(DialogOverlay)`
   z-index: 99;
 `;
 
-const StyledDialogContent = styled(DialogContent)`
-  background-color: #ffffff;
+const StyledDialogContent = styled(DialogContent)
+`
+  background-color: #fafaff;
   border-radius: 4px;
   max-width: 800px;
   box-shadow: 0 0 9px rgba(255, 255, 255, 0.3);
@@ -22,10 +24,12 @@ const StyledDialogContent = styled(DialogContent)`
   margin: 24px auto;
 `;
 
-export default props => (
-  <Dialog>
-    <StyledDialogOverlay>
-      <StyledDialogContent>{props.children}</StyledDialogContent>
-    </StyledDialogOverlay>
-  </Dialog>
+export default props => ( <
+    Dialog >
+    <
+    StyledDialogOverlay >
+    <
+    StyledDialogContent > { props.children } < /StyledDialogContent> <
+    /StyledDialogOverlay> <
+    /Dialog>
 );

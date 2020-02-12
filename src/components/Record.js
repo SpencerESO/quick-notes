@@ -6,16 +6,17 @@ import { Predictions } from "aws-amplify";
 import { keyframes, css, jsx } from "@emotion/core";
 import styled from "@emotion/styled";
 import {
-  FaMicrophone,
-  FaMicrophoneAlt,
-  FaMicrophoneAltSlash
+    FaMicrophone,
+    FaMicrophoneAlt,
+    FaMicrophoneAltSlash
 } from "react-icons/fa";
 import mic from "microphone-stream";
 
 import RecordingEditor from "./Recording-Editor";
 import { createNote } from "../graphql/mutations";
 
-const Container = styled("div")`
+const Container = styled("div")
+`
   margin: 16px auto;
   display: flex;
   flex-direction: column;
@@ -23,7 +24,7 @@ const Container = styled("div")`
   align-items: center;
 `;
 
-const pulse = keyframes`
+const pulse = keyframes `
   0% {
     transform: scale(1);
     opacity: 0.3;
@@ -36,92 +37,94 @@ const pulse = keyframes`
 `;
 
 export default props => {
-  const [isRecording, setIsRecording] = useState(false);
-  const [showRecordingEditor, setShowRecordingEditor] = useState(false);
-  const [recordingText, setRecordingText] = useState("");
-  const [isConverting, setIsConverting] = useState("");
-  const [micStream, setMicStream] = useState();
-  const [audioBuffer] = useState(
-    (function() {
-      let buffer = [];
-      function add(raw) {
-        buffer = buffer.concat(...raw);
-        return buffer;
-      }
-      function newBuffer() {
-        console.log("reseting buffer");
-        buffer = [];
-      }
+    const [isRecording, setIsRecording] = useState(false);
+    const [showRecordingEditor, setShowRecordingEditor] = useState(false);
+    const [recordingText, setRecordingText] = useState("");
+    const [isConverting, setIsConverting] = useState("");
+    const [micStream, setMicStream] = useState();
+    const [audioBuffer] = useState(
+        (function() {
+            let buffer = [];
 
-      return {
-        reset: function() {
-          newBuffer();
-        },
-        addData: function(raw) {
-          return add(raw);
-        },
-        getData: function() {
-          return buffer;
-        }
-      };
-    })()
-  );
+            function add(raw) {
+                buffer = buffer.concat(...raw);
+                return buffer;
+            }
 
-  const startRecording = async () => {
-    const stream = await window.navigator.mediaDevices.getUserMedia({
-      video: false,
-      audio: true
-    });
-    const startMic = new mic();
+            function newBuffer() {
+                console.log("reseting buffer");
+                buffer = [];
+            }
 
-    startMic.setStream(stream);
-    startMic.on("data", chunk => {
-      var raw = mic.toRaw(chunk);
-      if (raw == null) {
-        return;
-      }
-      audioBuffer.addData(raw);
-    });
+            return {
+                reset: function() {
+                    newBuffer();
+                },
+                addData: function(raw) {
+                    return add(raw);
+                },
+                getData: function() {
+                    return buffer;
+                }
+            };
+        })()
+    );
 
-    setMicStream(startMic);
-    setIsRecording(true);
-  };
+    const startRecording = async() => {
+        const stream = await window.navigator.mediaDevices.getUserMedia({
+            video: false,
+            audio: true
+        });
+        const startMic = new mic();
 
-  const stopRecording = async () => {
-    micStream.stop();
-    setIsRecording(false);
-    setIsConverting(true);
+        startMic.setStream(stream);
+        startMic.on("data", chunk => {
+            var raw = mic.toRaw(chunk);
+            if (raw == null) {
+                return;
+            }
+            audioBuffer.addData(raw);
+        });
 
-    const buffer = audioBuffer.getData();
-    const result = await Predictions.convert({
-      transcription: {
-        source: {
-          bytes: buffer
-        }
-      }
-    });
+        setMicStream(startMic);
+        setIsRecording(true);
+    };
 
-    setMicStream(null);
-    audioBuffer.reset();
-    setRecordingText(result.transcription.fullText);
-    setIsConverting(false);
-    setShowRecordingEditor(true);
-  };
+    const stopRecording = async() => {
+        micStream.stop();
+        setIsRecording(false);
+        setIsConverting(true);
 
-  return (
-    <Container>
-      <div
-        css={css`
+        const buffer = audioBuffer.getData();
+        const result = await Predictions.convert({
+            transcription: {
+                source: {
+                    bytes: buffer
+                }
+            }
+        });
+
+        setMicStream(null);
+        audioBuffer.reset();
+        setRecordingText(result.transcription.fullText);
+        setIsConverting(false);
+        setShowRecordingEditor(true);
+    };
+
+    return ( <
+        Container >
+        <
+        div css = { css `
           position: relative;
           justify-content: center;
           align-items: center;
           width: 120px;
           height: 120px;
-        `}
-      >
-        <div
-          css={[
-            css`
+        ` } >
+        <
+        div css = {
+            [
+                css `
               width: 100%;
               height: 100%;
               top: 0;
@@ -129,68 +132,75 @@ export default props => {
               position: absolute;
 
               border-radius: 50%;
-              background-color: #74b49b;
+              background-color: #0b0863;
             `,
-            isRecording || isConverting
-              ? css`
+                isRecording || isConverting ?
+                css `
                   animation: ${pulse} 1.5s ease infinite;
-                `
-              : {}
-          ]}
-        />
-        <div
-          css={css`
+                ` :
+                {}
+            ]
+        }
+        />{" "} <
+        div css = { css `
             width: 100%;
             height: 100%;
             top: 0;
             left: 0;
             position: absolute;
             border-radius: 50%;
-            background-color: #74b49b;
+            background-color: #0b0863;
             display: flex;
             cursor: pointer;
-          `}
-          onClick={() => {
-            if (!isRecording) {
-              startRecording();
-            } else {
-              stopRecording();
+          ` }
+        onClick = {
+            () => {
+                if (!isRecording) {
+                    startRecording();
+                } else {
+                    stopRecording();
+                }
             }
-          }}
-        >
-          {isConverting ? (
-            <FaMicrophoneAltSlash
-              size={50}
-              style={{ margin: "auto" }}
-              color="#f4f9f4"
-            />
-          ) : isRecording ? (
-            <FaMicrophone
-              size={50}
-              style={{ margin: "auto" }}
-              color="#f4f9f4"
-            />
-          ) : (
-            <FaMicrophoneAlt
-              size={50}
-              style={{ margin: "auto" }}
-              color="#f4f9f4"
-            />
-          )}
-        </div>
-      </div>
-      {showRecordingEditor && (
-        <RecordingEditor
-          text={recordingText}
-          onDismiss={() => {
-            setShowRecordingEditor(false);
-          }}
-          onSave={async data => {
-            await API.graphql(graphqlOperation(createNote, { input: data }));
-            props.setTabIndex(0);
-          }}
-        />
-      )}
-    </Container>
-  );
+        } >
+        {
+            isConverting ? ( <
+                FaMicrophoneAltSlash size = { 50 }
+                style = {
+                    { margin: "auto" } }
+                color = "#f4f9f4" /
+                >
+            ) : isRecording ? ( <
+                FaMicrophone size = { 50 }
+                style = {
+                    { margin: "auto" } }
+                color = "#f4f9f4" /
+                >
+            ) : ( <
+                FaMicrophoneAlt size = { 50 }
+                style = {
+                    { margin: "auto" } }
+                color = "#f4f9f4" /
+                >
+            )
+        } { " " } <
+        /div>{" "} <
+        /div>{" "} {
+            showRecordingEditor && ( <
+                RecordingEditor text = { recordingText }
+                onDismiss = {
+                    () => {
+                        setShowRecordingEditor(false);
+                    }
+                }
+                onSave = {
+                    async data => {
+                        await API.graphql(graphqlOperation(createNote, { input: data }));
+                        props.setTabIndex(0);
+                    }
+                }
+                />
+            )
+        } { " " } <
+        /Container>
+    );
 };
